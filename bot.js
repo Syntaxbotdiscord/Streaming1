@@ -68,11 +68,50 @@ moment.locale('ar-TN');
 
 
 
+client.on('message', message => {
+     if (message.content === "--servers") {
+     let embed = new Discord.RichEmbed()
+  .setColor("RANDOM")
+  .addField("**Servers: **" , client.guilds.size)
+  message.channel.sendEmbed(embed);
+    }
+});
 
 
 
 
 
+
+client.on('message', message => {
+    if (message.content.startsWith("--avatar")) {
+        var mentionned = message.mentions.users.first();
+    var x5bzm;
+      if(mentionned){
+          var x5bzm = mentionned;
+      } else {
+          var x5bzm = message.author;
+          
+      }
+        const embed = new Discord.RichEmbed()
+        .setColor("RANDOM")
+        .setImage(`${x5bzm.avatarURL}`)
+      message.channel.sendEmbed(embed);
+    }
+});
+
+
+
+
+
+
+client.on('message', message => {
+    var args = message.content.split(/[ ]+/)
+    if(message.content.includes('عمر')){
+        message.delete()
+    return message.reply(`**https://cdn.discordapp.com/attachments/457782786749759498/466290491575631873/unknown.png**`)
+   message.delete()
+    }
+});
 
 
 
